@@ -1,28 +1,41 @@
 {
-  "name": "agency",
-  "title": "Agency",
-  "version": "3.3.7+1",
-  "homepage": "http://startbootstrap.com/template-overviews/agency",
-  "author": "Start Bootstrap",
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE"
-  },
-  "devDependencies": {
-    "bootstrap": "^3.3.7",
-    "browser-sync": "^2.13.0",
-    "font-awesome": "^4.6.3",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^2.0.10",
-    "gulp-header": "^1.8.7",
-    "gulp-less": "^3.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
-    "gulp-uglify": "^1.5.4",
-    "jquery": "^1.11.3"
+  "name": "cloudpeaklaw",
+  "version": "1.0.0",
+  "description": "Just a new awesome design for cloudpeaklaw",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/BlackrockDigital/startbootstrap-agency.git"
+    "url": "git+https://github.com/petersherif/cloudpeaklaw.git"
+  },
+  "author": "Peter Sherif - petersherif.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petersherif/cloudpeaklaw/issues"
+  },
+  "homepage": "https://cloudpeaklaw.com/",
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "browser-sync": "^2.23.5",
+    "del": "^3.0.0",
+    "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-cache": "^1.0.2",
+    "gulp-changed": "^3.2.0",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-header": "^2.0.1",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^1.12.1",
+    "gulp-uglify": "^3.0.0",
+    "jquery": "^3.3.1",
+    "jquery-affix": "0.0.5",
+    "run-sequence": "^2.2.1"
   }
 }

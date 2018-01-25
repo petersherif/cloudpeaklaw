@@ -1,0 +1,25 @@
+/*------------------------------------------------------------------
+  	[Highlight Color Customization]
+------------------------------------------------------------------*/
+
+// Highlight Color Customization
+
+::selection {
+	text-shadow: none;
+	background: $theme-primary;
+}
+
+img::selection {
+	background: transparent;
+}
+
+body {
+	webkit-tap-highlight-color: $theme-primary;
+}
+
+.bg-primary {
+	background-color: $theme-primary;
+}
+.bg-danger {
+	background-color: $theme-danger;
+}
