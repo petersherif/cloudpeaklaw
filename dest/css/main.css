@@ -238,19 +238,11 @@ header .intro-text {
   padding-bottom: 50px;
 }
 
-header .intro-text .intro-lead-in {
-  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-style: italic;
-  font-size: 22px;
-  line-height: 22px;
-  margin-bottom: 25px;
-}
-
 header .intro-text .intro-heading {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 50px;
+  font-size: 30px;
   line-height: 50px;
   margin-bottom: 25px;
 }
@@ -259,13 +251,6 @@ header .intro-text .intro-heading {
   header .intro-text {
     padding-top: 300px;
     padding-bottom: 200px;
-  }
-  header .intro-text .intro-lead-in {
-    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-style: italic;
-    font-size: 40px;
-    line-height: 40px;
-    margin-bottom: 25px;
   }
   header .intro-text .intro-heading {
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -281,13 +266,13 @@ section {
   padding: 100px 0;
 }
 
-section h2.section-heading {
+section .section-heading {
   font-size: 40px;
   margin-top: 0;
   margin-bottom: 15px;
 }
 
-section h3.section-subheading {
+section .section-subheading {
   font-size: 16px;
   font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: none;
@@ -296,9 +281,22 @@ section h3.section-subheading {
   margin-bottom: 75px;
 }
 
+section .section-text {
+  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 @media (min-width: 768px) {
   section {
     padding: 150px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  section .section-heading {
+    font-size: 28px;
+  }
+  section .section-text {
+    font-size: 14px;
   }
 }
 
@@ -618,14 +616,26 @@ aside.clients img {
 }
 
 section#contact {
-  background-color: #222222;
-  background-image: url("../img/map-image.png");
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+section#contact::after {
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-image: url("../img/header-bg.jpg");
   background-position: center;
   background-repeat: no-repeat;
+  opacity: 0.6;
+  z-index: -1;
 }
 
 section#contact .section-heading {
-  color: white;
+  color: #fff;
 }
 
 section#contact .form-group {
@@ -645,6 +655,12 @@ section#contact .form-group textarea.form-control {
   height: 236px;
 }
 
+section#contact textarea.form-control {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 230px;
+}
+
 section#contact .form-control:focus {
   border-color: #F05F40;
   -webkit-box-shadow: none;
@@ -654,47 +670,63 @@ section#contact .form-control:focus {
 section#contact ::-webkit-input-placeholder {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  font-weight: 700;
-  color: #eeeeee;
+  text-transform: initial;
+  color: #777777;
 }
 
 section#contact :-moz-placeholder {
   /* Firefox 18- */
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  font-weight: 700;
-  color: #eeeeee;
+  text-transform: initial;
+  color: #777777;
 }
 
 section#contact ::-moz-placeholder {
   /* Firefox 19+ */
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  font-weight: 700;
-  color: #eeeeee;
+  text-transform: initial;
+  color: #777777;
 }
 
 section#contact :-ms-input-placeholder {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  font-weight: 700;
-  color: #eeeeee;
+  text-transform: initial;
+  color: #777777;
 }
 
 section#contact .text-danger {
   color: #e74c3c;
 }
 
+section#contact .contact-info p {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
 /*------------------------------------------------------------------
 	[Button]
 ------------------------------------------------------------------*/
+.btn {
+  border-radius: 300px;
+}
+
+.btn-primary, .btn-secondary {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  -webkit-transition: all 0.35s ease 0s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s, -webkit-transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s;
+  transition: all 0.35s ease 0s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s, -webkit-transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s;
+  transition: all 0.35s ease 0s, transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s;
+  transition: all 0.35s ease 0s, transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s, -webkit-transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s;
+}
+
 .btn-primary {
   color: white;
   background-color: #F05F40;
   border-color: #F05F40;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -743,62 +775,65 @@ fieldset[disabled] .btn-primary.focus {
   background-color: white;
 }
 
-.btn-xl {
-  color: white;
-  background-color: #F05F40;
-  border-color: #F05F40;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
-  border-radius: 3px;
-  font-size: 18px;
-  padding: 20px 40px;
+.btn-secondary {
+  color: #222222;
+  background-color: white;
+  border-color: white;
 }
 
-.btn-xl:focus, .btn-xl.focus {
-  color: white;
-  background-color: #eb3812;
-  border-color: #a4270d;
+.btn-secondary:focus, .btn-secondary.focus {
+  color: #222222;
+  background-color: #e6e6e6;
+  border-color: #bfbfbf;
 }
 
-.btn-xl:hover {
-  color: white;
-  background-color: #eb3812;
-  border-color: #e13612;
+.btn-secondary:hover {
+  color: #222222;
+  background-color: #e6e6e6;
+  border-color: #e0e0e0;
 }
 
-.btn-xl:active, .btn-xl.active,
-.open > .btn-xl.dropdown-toggle {
-  color: white;
-  background-color: #eb3812;
-  border-color: #e13612;
+.btn-secondary:active, .btn-secondary.active,
+.open > .btn-secondary.dropdown-toggle {
+  color: #222222;
+  background-color: #e6e6e6;
+  border-color: #e0e0e0;
 }
 
-.btn-xl:active:hover, .btn-xl:active:focus, .btn-xl:active.focus, .btn-xl.active:hover, .btn-xl.active:focus, .btn-xl.active.focus,
-.open > .btn-xl.dropdown-toggle:hover,
-.open > .btn-xl.dropdown-toggle:focus,
-.open > .btn-xl.dropdown-toggle.focus {
-  color: white;
-  background-color: #c93110;
-  border-color: #a4270d;
+.btn-secondary:active:hover, .btn-secondary:active:focus, .btn-secondary:active.focus, .btn-secondary.active:hover, .btn-secondary.active:focus, .btn-secondary.active.focus,
+.open > .btn-secondary.dropdown-toggle:hover,
+.open > .btn-secondary.dropdown-toggle:focus,
+.open > .btn-secondary.dropdown-toggle.focus {
+  color: #222222;
+  background-color: #d4d4d4;
+  border-color: #bfbfbf;
 }
 
-.btn-xl:active, .btn-xl.active,
-.open > .btn-xl.dropdown-toggle {
+.btn-secondary:active, .btn-secondary.active,
+.open > .btn-secondary.dropdown-toggle {
   background-image: none;
 }
 
-.btn-xl.disabled:hover, .btn-xl.disabled:focus, .btn-xl.disabled.focus, .btn-xl[disabled]:hover, .btn-xl[disabled]:focus, .btn-xl[disabled].focus,
-fieldset[disabled] .btn-xl:hover,
-fieldset[disabled] .btn-xl:focus,
-fieldset[disabled] .btn-xl.focus {
-  background-color: #F05F40;
-  border-color: #F05F40;
+.btn-secondary.disabled:hover, .btn-secondary.disabled:focus, .btn-secondary.disabled.focus, .btn-secondary[disabled]:hover, .btn-secondary[disabled]:focus, .btn-secondary[disabled].focus,
+fieldset[disabled] .btn-secondary:hover,
+fieldset[disabled] .btn-secondary:focus,
+fieldset[disabled] .btn-secondary.focus {
+  background-color: white;
+  border-color: white;
 }
 
-.btn-xl .badge {
-  color: #F05F40;
-  background-color: white;
+.btn-secondary .badge {
+  color: white;
+  background-color: #222222;
+}
+
+.btn-md {
+  padding: 10px 16px;
+}
+
+.btn-xl {
+  font-size: 18px;
+  padding: 20px 40px;
 }
 
 ul.social-buttons {
@@ -828,6 +863,19 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
 .btn.active,
 .btn:active:focus {
   outline: none;
+}
+
+@media (max-width: 768px) {
+  .btn-md {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 8px 12px;
+  }
+  .btn-xl {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 12px 18px;
+  }
 }
 
 .portfolio-modal .modal-dialog {
@@ -923,7 +971,6 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
   text-shadow: none;
   background: #F05F40;
 }
-
 ::selection {
   text-shadow: none;
   background: #F05F40;
@@ -937,12 +984,16 @@ img::selection {
   background: transparent;
 }
 
-img::-moz-selection {
-  background: transparent;
-}
-
 body {
   webkit-tap-highlight-color: #F05F40;
+}
+
+.bg-primary {
+  background-color: #F05F40;
+}
+
+.bg-danger {
+  background-color: #e74c3c;
 }
 
 /*------------------------------------------------------------------
@@ -1037,29 +1088,6 @@ body {
 .full-width {
   width: 100%;
   height: auto;
-}
-
-/*--------------------------------------------------
-	[Font Weight]
-----------------------------------------------------*/
-.fweight-300 {
-  font-weight: 300 !important;
-}
-
-.fweight-400 {
-  font-weight: 400 !important;
-}
-
-.fweight-500 {
-  font-weight: 500 !important;
-}
-
-.fweight-600 {
-  font-weight: 600 !important;
-}
-
-.fweight-700 {
-  font-weight: 700 !important;
 }
 
 /*------------------------------------------------------------------
@@ -1191,7 +1219,7 @@ body {
 }
 
 /*------------------------------------------------------------------
-	[Top margin below 992px]
+	[Bottom margin below 992px]
 ------------------------------------------------------------------*/
 @media (max-width: 992px) {
   .md-margin-b-0 {
@@ -1236,7 +1264,7 @@ body {
 }
 
 /*------------------------------------------------------------------
-	[Top margin below 768px]
+	[Bottom margin below 768px]
 ------------------------------------------------------------------*/
 @media (max-width: 768px) {
   .sm-margin-b-0 {
@@ -1281,7 +1309,7 @@ body {
 }
 
 /*------------------------------------------------------------------
-	[Top margin below 480px]
+	[Bottom margin below 480px]
 ------------------------------------------------------------------*/
 @media (max-width: 480px) {
   .xs-margin-b-0 {
@@ -1349,7 +1377,7 @@ body {
 }
 
 /*------------------------------------------------------------------
-	[Top margin below 992px]
+	[Text alignment below 992px]
 ------------------------------------------------------------------*/
 @media (max-width: 992px) {
   .md-text-center {
@@ -1364,7 +1392,7 @@ body {
 }
 
 /*------------------------------------------------------------------
-	[Top margin below 768px]
+	[Text alignment below 768px]
 ------------------------------------------------------------------*/
 @media (max-width: 768px) {
   .sm-text-center {
@@ -1379,7 +1407,7 @@ body {
 }
 
 /*------------------------------------------------------------------
-	[Top margin below 480px]
+	[Text alignment below 480px]
 ------------------------------------------------------------------*/
 @media (max-width: 480px) {
   .xs-text-center {
@@ -1391,6 +1419,95 @@ body {
   .xs-text-right {
     text-align: right;
   }
+}
+
+/*--------------------------------------------------
+	[Divider style]
+----------------------------------------------------*/
+hr.divide-bar {
+  border-width: 3px;
+  border-color: #F05F40;
+}
+
+hr.divide-bar.inverse {
+  border-color: #fff;
+}
+
+hr.divide-bar.sm {
+  max-width: 50px;
+}
+
+hr.divide-bar.md {
+  max-width: 150px;
+}
+
+hr.divide-bar.lg {
+  max-width: 80%;
+}
+
+/*--------------------------------------------------
+	[Font Weight]
+----------------------------------------------------*/
+.fweight-300 {
+  font-weight: 300 !important;
+}
+
+.fweight-400 {
+  font-weight: 400 !important;
+}
+
+.fweight-500 {
+  font-weight: 500 !important;
+}
+
+.fweight-600 {
+  font-weight: 600 !important;
+}
+
+.fweight-700 {
+  font-weight: 700 !important;
+}
+
+/*--------------------------------------------------
+	[Font Size]
+----------------------------------------------------*/
+.fsize-10 {
+  font-size: 10px;
+}
+
+.fsize-12 {
+  font-size: 12px;
+}
+
+.fsize-14 {
+  font-size: 14px;
+}
+
+.fsize-16 {
+  font-size: 16px;
+}
+
+.fsize-18 {
+  font-size: 18px;
+}
+
+.fsize-20 {
+  font-size: 20px;
+}
+
+.fsize-22 {
+  font-size: 22px;
+}
+
+.fsize-24 {
+  font-size: 24px;
+}
+
+/*--------------------------------------------------
+	[Text Faded]
+----------------------------------------------------*/
+.text-faded {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /*--------------------------------------------------
@@ -1488,7 +1605,6 @@ body {
   font-weight: 400;
   color: #a6a7aa;
   background: #fafafa;
-  border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
   border-radius: 0;
