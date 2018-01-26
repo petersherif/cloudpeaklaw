@@ -4,6 +4,11 @@
 
 hr.divide-bar {
 	border-width: 3px;
+	border-color: $theme-primary;
+
+	&.inverse {
+		border-color: $color-white;
+	}
 
 	&.sm {
 		max-width: 50px;

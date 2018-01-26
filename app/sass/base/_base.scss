@@ -57,3 +57,16 @@ h1, h2, h3, h4, h5, h6 {
 .bg-darkest-gray {
 	background-color: $gray-darker;
 }
+
+blockquote {
+	border-left: 3px solid $gray-light;
+	color: $gray-light;
+	font-size: 14px;
+
+	.blockquote-heading {
+		color: $gray-dark;
+		text-transform: capitalize;
+		font-size: 16px;
+		margin-top: 25px;
+	}
+}
