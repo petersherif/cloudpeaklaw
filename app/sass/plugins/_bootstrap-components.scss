@@ -8,7 +8,6 @@
 	color: $color-subtitle;
 	@include placeholder($color-subtitle);
 	background: $color-sky-light;
-	border: none;
 	box-shadow: none;
 	@include border-radius(0);
 	padding-left: 15px;
