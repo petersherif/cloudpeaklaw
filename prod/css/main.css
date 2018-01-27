@@ -223,6 +223,10 @@ blockquote .blockquote-heading {
   .navbar-custom.affix {
     background-color: #222222;
     padding: 10px 0;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
   }
   .navbar-custom.affix .navbar-brand {
     font-size: 1.5em;
@@ -230,12 +234,17 @@ blockquote .blockquote-heading {
   .navbar-custom.affix .navbar-nav li a {
     font-size: 12px;
   }
+  .navbar-custom.affix.out {
+    -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+  }
 }
 
 /*------------------------------------------------------------------
 	[Header]
 ------------------------------------------------------------------*/
 header {
+  background-color: #515769;
   background-image: url("../img/header-bg.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
