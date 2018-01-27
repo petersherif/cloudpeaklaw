@@ -1,133 +1,190 @@
-const gulp 				  = require('gulp'),
-			sass 				  = require('gulp-sass'),
-			sourcemaps 		= require('gulp-sourcemaps'),
-			autoprefixer  = require('gulp-autoprefixer'),
-			changed 		  = require('gulp-changed'),
-			browserSync   = require('browser-sync').create(),
-			header 			  = require('gulp-header'),
-			cleanCSS 		  = require('gulp-clean-css'),
-			rename 			  = require("gulp-rename"),
-			uglify 			  = require('gulp-uglify'),
-			cache 			  = require('gulp-cache'),
-			imagemin 		  = require('gulp-imagemin'),
-			htmlreplace 	= require('gulp-html-replace'),
-			del 				  = require('del'),
-			runSequence   = require('run-sequence'),
-			plumber 			= require('gulp-plumber'),
-			pkg 				  = require('./package.json');
+var gulp 					= require('gulp');
+var sass 				  = require('gulp-sass');
+var	sourcemaps 		= require('gulp-sourcemaps');
+var	autoprefixer  = require('gulp-autoprefixer');
+var	changed 		  = require('gulp-changed');
+var	browserSync   = require('browser-sync').create();
+var	header 			  = require('gulp-header');
+var	cleanCSS 		  = require('gulp-clean-css');
+var	rename 			  = require("gulp-rename");
+var	uglify 			  = require('gulp-uglify');
+var concat        = require('gulp-concat');
+var	cache 			  = require('gulp-cache');
+var	imagemin 		  = require('gulp-imagemin');
+var	htmlreplace 	= require('gulp-html-replace');
+var	del 				  = require('del');
+var	runSequence   = require('run-sequence');
+var	plumber 			= require('gulp-plumber');
+var	pkg 				  = require('./package.json');
 
 // Set the banner content
 var banner = ['/**',
-  ' * <%= pkg.name %> - <%= pkg.description %>',
-  ' * @version v<%= pkg.version %>',
-  ' * @link <%= pkg.homepage %>',
-  ' * @license <%= pkg.license %>',
-  ' */',
-  ''].join('\n');
+		  ' * <%= pkg.name %> - <%= pkg.description %>',
+		  ' * @version v<%= pkg.version %>',
+		  ' * @link <%= pkg.homepage %>',
+		  ' * @license <%= pkg.license %>',
+		  ' */',
+		  ''].join('\n');
+
+var app = 'app/',
+		prod = 'prod/';
+
+var paths = {
+	html: {
+		staging: app + '**/*.html',
+		production: prod
+	},
+  sass: {
+    src: app + 'sass/**/*.scss',
+    staging: app + 'css/',
+    production: prod + 'css/'
+  },
+  js: {
+    src: app + 'js/**/*.js',
+    staging: app + 'js/',
+    production: prod + 'js/'
+  },
+  images: {
+  	src: app + 'img/**/*.+(png|jpg|jpeg|gif|svg)',
+  	production: prod + 'img/'
+  },
+  fonts: {
+  	src: app + 'fonts/**/*',
+  	production: prod + 'fonts/'
+  },
+  vendor: {
+  	bootstrap: {
+  		src: ['node_modules/bootstrap/dist/**/*',
+  					'!**/npm.js',
+  					'!**/bootstrap-theme.*',
+  					'!**/*.map'],
+  		staging: app + 'vendor/bootstrap/'
+  	},
+  	jquery: {
+  		src: ['node_modules/jquery/dist/jquery.js',
+  					'node_modules/jquery/dist/jquery.min.js'
+  				],
+  		staging: app + 'vendor/jquery/'
+  	},
+  	fontawesome: {
+  		src: [
+						'node_modules/font-awesome/**',
+						'!node_modules/font-awesome/**/*.map',
+						'!node_modules/font-awesome/.npmignore',
+						'!node_modules/font-awesome/*.txt',
+						'!node_modules/font-awesome/*.md',
+						'!node_modules/font-awesome/*.json'
+					],
+  		staging: app + 'vendor/font-awesome/'
+  	},
+  	staging: app + 'vendor/**/*',
+  	production: prod + 'vendor/'
+  }
+};
+
+gulp.task('clean', function() {
+  return del([ 'prod' ]);
+});
+
+/*
+ * Define our tasks using plain functions
+ */
 
 // Sass - Compile Sass files into CSS
-gulp.task('sass', function () {
-	return gulp.src('./app/sass/**/*.scss')
-		.pipe(plumber())
-		.pipe(sourcemaps.init())
-		.pipe(changed('./app/css/'))
-		.pipe(sass({ outputStyle: 'expanded' }))
-		.pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            // cascade: false // should Autoprefixer use Visual Cascade, if CSS is uncompressed. Default: true
-        }))
-		.pipe(header(banner, { pkg: pkg }))
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest('./app/css/'))
+gulp.task('sass', function() {
+  return gulp.src(paths.sass.src)
+  	.pipe(plumber())
+  	.pipe(sourcemaps.init())
+  	.pipe(changed(paths.sass.staging))
+    .pipe(sass({ outputStyle: 'expanded' }))
+    .pipe(autoprefixer({
+        browsers: ['last 2 versions'],
+        // cascade: false // should Autoprefixer use Visual Cascade, if CSS is uncompressed. Default: true
+    }))
+    .pipe(header(banner, { pkg: pkg }))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(paths.sass.staging));
 });
 
 // Minify compiled CSS
-gulp.task('minify-css', ['sass'], function() {
-	return gulp.src('./app/css/main.css')
+gulp.task('minifyCss', ['sass'], function() {
+	return gulp.src(paths.sass.staging + 'main.css')
 		.pipe(cleanCSS({ compatibility: 'ie8' }))
 		.pipe(rename({ suffix: '.min' }))
-		.pipe(gulp.dest('./app/css'))
+		.pipe(gulp.dest(paths.sass.staging));
 });
 
 // Minify JS
-gulp.task('minify-js', function() {
-	return gulp.src('./app/js/main.js')
-		.pipe(uglify())
-		.pipe(header(banner, { pkg: pkg }))
-		.pipe(rename({ suffix: '.min' }))
-		.pipe(gulp.dest('./app/js'))
+gulp.task('minifyJs', function() {
+  return gulp.src([paths.js.src, '!app/js/main.min.js'])
+    .pipe(uglify())
+    .pipe(header(banner, { pkg: pkg }))
+    .pipe(concat('main.min.js'))
+    .pipe(gulp.dest(paths.js.staging));
 });
 
-gulp.task('images', function(){
-  return gulp.src('./app/img/**/*.+(png|jpg|gif|svg)')
-  .pipe(cache(imagemin()))
-  .pipe(gulp.dest('./dest/img'))
+// Optimize Images
+gulp.task('images', function() {
+  return gulp.src(paths.images.src)
+    .pipe(cache(imagemin()))
+    .pipe(gulp.dest(paths.images.production));
 });
 
+// Copy fonts to production (dest) folder
 gulp.task('fonts', function() {
-  return gulp.src('./app/fonts/**/*')
-  .pipe(gulp.dest('./dest/fonts'))
+	return gulp.src(paths.fonts.src)
+  .pipe(gulp.dest(paths.fonts.production));
 });
 
-gulp.task('clean:dest', function() {
-  return del.sync('dest');
+// Copying vendor libraries from /node_modules into /vendor
+gulp.task('copy', function() {
+	gulp.src(paths.vendor.bootstrap.src)
+		.pipe(gulp.dest(paths.vendor.bootstrap.staging));
+
+	gulp.src(paths.vendor.jquery.src)
+		.pipe(gulp.dest(paths.vendor.jquery.staging));
+
+	gulp.src(paths.vendor.fontawesome.src)
+		.pipe(gulp.dest(paths.vendor.fontawesome.staging));
 });
 
-// Copy vendor libraries from /node_modules into /vendor
-gulp.task('copy-vendor-libs', function() {
-	gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*', '!**/*.map'])
-		.pipe(gulp.dest('./app/vendor/bootstrap'))
+// Copying all the files from app to prod
+gulp.task('buildProduction', function() {
+	gulp.src(paths.sass.staging + '**/*')
+		.pipe(gulp.dest(paths.sass.production));
 
-	gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'])
-		.pipe(gulp.dest('./app/vendor/jquery'))
+	gulp.src(paths.js.staging + 'main.min.js')
+		.pipe(gulp.dest(paths.js.production));
 
-	gulp.src([
-			'node_modules/font-awesome/**',
-			'!node_modules/font-awesome/**/*.map',
-			'!node_modules/font-awesome/.npmignore',
-			'!node_modules/font-awesome/*.txt',
-			'!node_modules/font-awesome/*.md',
-			'!node_modules/font-awesome/*.json'
-		])
-		.pipe(gulp.dest('./app/vendor/font-awesome'))
-});
+	gulp.src(paths.vendor.staging)
+		.pipe(gulp.dest(paths.vendor.production));
 
-gulp.task('copy-dest', function() {
-	gulp.src('./app/css/**/*')
-		.pipe(gulp.dest('./dest/css'))
-
-	gulp.src(['./app/js/*.js', '!./app/js/main.js'])
-		.pipe(gulp.dest('./dest/js'))
-
-	gulp.src('./app/vendor/**/*')
-		.pipe(gulp.dest('./dest/vendor'))
-
-	gulp.src('./app/**/*.html')
+	gulp.src(paths.html.staging)
 		.pipe(htmlreplace({
         'css': 'css/main.min.css',
+        'js': 'js/main.min.js'
     }))
-		.pipe(gulp.dest('./dest'))
-});
-
-// Build the production files in dest folder
-gulp.task('default', function () {
-	runSequence('clean:dest', ['sass', 'minify-css', 'minify-js', 'copy-vendor-libs'], 'copy-dest', 'images', 'fonts')
+		.pipe(gulp.dest(paths.html.production));
 });
 
 // Configure the browserSync task
 gulp.task('browserSync', function() {
 	browserSync.init({
 		server: {
-			baseDir: './app'
-		},
+			baseDir: app
+		}
 	})
-})
+});
 
 // Dev task with browserSync
-gulp.task('dev', ['sass', 'minify-css', 'minify-js', 'browserSync'], function() {
-	gulp.watch('./app/sass/**/*.scss', ['sass']).on('change', browserSync.reload);
-	gulp.watch('./app/css/**/*.css', ['minify-css']).on('change', browserSync.reload);
-	gulp.watch('./app/js/**/*.js', ['minify-js']).on('change', browserSync.reload);
-	// Reloads the browser whenever HTML files change
-	gulp.watch('./app/**/*.html').on('change', browserSync.reload);
+gulp.task('dev', ['sass', 'browserSync'], function() {
+  gulp.watch(paths.sass.src, ['sass']).on('change', browserSync.reload);
+  gulp.watch(paths.js.src).on('change', browserSync.reload);
+  gulp.watch(paths.html.staging).on('change', browserSync.reload);
+});
+
+
+// * Define default task that can be called by just running `gulp` from cli
+gulp.task('default', function() {
+	runSequence('clean', ['sass', 'minifyCss', 'minifyJs', 'copy'], 'images', 'fonts', 'buildProduction');
 });
