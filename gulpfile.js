@@ -31,9 +31,13 @@ var app = 'app/',
 
 var paths = {
 	html: {
-		staging: app + '**/*.html',
+		staging: app + '**/*.php',
 		production: prod
 	},
+  includes: {
+    staging: app + 'includes/**/*',
+    production: prod + 'includes/'
+  },
   sass: {
     src: app + 'sass/**/*.scss',
     staging: app + 'css/',
@@ -118,8 +122,8 @@ gulp.task('minifyCss', ['sass'], function() {
 gulp.task('minifyJs', function() {
   return gulp.src([paths.js.src, '!app/js/main.min.js'])
     .pipe(uglify())
-    .pipe(header(banner, { pkg: pkg }))
     .pipe(concat('main.min.js'))
+    .pipe(header(banner, { pkg: pkg }))
     .pipe(gulp.dest(paths.js.staging));
 });
 
@@ -170,9 +174,8 @@ gulp.task('buildProduction', function() {
 // Configure the browserSync task
 gulp.task('browserSync', function() {
 	browserSync.init({
-		server: {
-			baseDir: app
-		}
+    proxy: 'localhost/cloudpeaklaw/app',
+    port: 8080
 	})
 });
 

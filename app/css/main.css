@@ -428,31 +428,31 @@ footer ul.quicklinks {
   padding-right: 15px;
 }
 
-.feature {
+.service {
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-.feature-img {
+.service-img {
   max-width: 130px;
 }
 
-.feature-heading {
+.service-heading {
   margin: 15px 0;
   text-transform: none;
 }
 
-.feature-heading a {
+.service-heading a {
   color: #333333;
 }
 
-.feature-list {
+.service-list {
   list-style: circle;
   text-align: left;
   margin: 40px 0;
 }
 
-.feature-list li {
+.service-list li {
   margin: 10px 0;
 }
 

@@ -1,5 +1,3 @@
-// Agency Theme JavaScript
-
 (function($) {
 	"use strict"; // Start of use strict
 
@@ -46,7 +44,6 @@
 		var curScroll = $(this).scrollTop();
 		if ( ( curScroll > 620 ) && ( curScroll > lastScroll) ) {
 			$('.navbar-fixed-top').addClass('out');
-			console.log(lastScroll);
 		}
 		else {
 			$('.navbar-fixed-top').removeClass('out');
