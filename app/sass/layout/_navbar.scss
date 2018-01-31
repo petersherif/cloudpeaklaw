@@ -83,7 +83,8 @@
 		.nav {
 			@include flex;
 			width: 100%;
-			li {
+			>li {
+				margin: 0 1px;
 				a {
 					color: $color-white;
 					transition: border-radius 0.1s;
@@ -136,8 +137,8 @@
 		}
 
 		&.out {
-			transform: translate3d(0, -50%, 0);
-			padding: 0;
+			transform: translate3d(0, calc(-50% + 2px), 0);
+			padding: 2px 0;
 		}
 	}
 }

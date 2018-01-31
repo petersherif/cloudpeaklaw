@@ -206,12 +206,15 @@ blockquote .blockquote-heading {
             justify-content: center;
     width: 100%;
   }
-  .navbar-custom .nav li a {
+  .navbar-custom .nav > li {
+    margin: 0 1px;
+  }
+  .navbar-custom .nav > li a {
     color: #fff;
     -webkit-transition: border-radius 0.1s;
     transition: border-radius 0.1s;
   }
-  .navbar-custom .nav li .dropdown-menu {
+  .navbar-custom .nav > li .dropdown-menu {
     border-color: #F05F40;
     border-radius: 0 0 5px 5px;
     left: 0;
@@ -243,9 +246,9 @@ blockquote .blockquote-heading {
     font-size: 12px;
   }
   .navbar-custom.affix.out {
-    -webkit-transform: translate3d(0, -50%, 0);
-            transform: translate3d(0, -50%, 0);
-    padding: 0;
+    -webkit-transform: translate3d(0, calc(-50% + 2px), 0);
+            transform: translate3d(0, calc(-50% + 2px), 0);
+    padding: 2px 0;
   }
 }
 
