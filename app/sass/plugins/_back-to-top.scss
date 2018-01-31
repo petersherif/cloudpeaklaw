@@ -1,24 +1,24 @@
 /*--------------------------------------------------
-	[Back To Top Theme Button]
+	[Back To Top Button]
 ----------------------------------------------------*/
 
 .back-to-top {
 	@include position(fixed, $bottom: 10px, $right: 10px);
 	display: inline-block;
-	z-index: 9;
-	@include size(40px);
 	@include font($size: 11px, $weight: 400);
+	@include size(40px);
+	z-index: 9;
 	color: $color-white;
 	text-align: center;
 	line-height: 3;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	background: $color-heading;
-	@include border-radius(3px);
+	border-radius: 3px;
 	visibility: hidden;
 	opacity: 0;
 	padding: 5px;
-	@include translate3d(0,50px,0);
+	transform: translate3d(0,50px,0);
 	@include cubic-transition($delay: 0, $duration: 300ms, $property: (all));
 
 	&:hover {
@@ -37,7 +37,7 @@
 	&.back-to-top-is-visible {
 		visibility: visible;
 		opacity: .6;
-		@include translate3d(0,0,0);
+		transform: translate3d(0,0,0);
 		@include cubic-transition($delay: 0, $duration: 300ms, $property: (all));
 
 		&:hover {

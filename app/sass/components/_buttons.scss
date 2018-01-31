@@ -13,6 +13,7 @@
 	font-weight: 700;
 	transition: all 0.35s ease 0s, transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s;
 }
+
 .btn-primary {
 	@extend %btn-shared;
 	@include button-variant(white, $theme-primary, $theme-primary);
@@ -29,6 +30,13 @@
 
 .btn-xl {
 	@include button-size($btn-font-size: 18px ,$btn-padding: 20px 40px);
+}
+
+.btn:focus,
+.btn:active,
+.btn.active,
+.btn:active:focus {
+	outline: none;
 }
 
 // Social Buttons
@@ -58,16 +66,9 @@ ul.social-buttons {
 	}
 }
 
-.btn:focus,
-.btn:active,
-.btn.active,
-.btn:active:focus {
-	outline: none;
-}
-
-@media(max-width: $screen-sm-min) {
+@media(max-width: $screen-xs-max) {
 	.btn-md {
-	@include button-size(14px, 400, 8px 12px);
+		@include button-size(12px, 400, 10px 14px);
 	}
 
 	.btn-xl {

@@ -53,8 +53,8 @@
 				<div class="col-lg-8 col-lg-offset-2 text-center">
 					<h2 class="section-heading">why choose us?</h2>
 					<hr class="divide-bar sm inverse">
-					<p class="margin-t-20 margin-b-20 fsize-16 section-text text-faded">Who should you trust with your most important affairs? Discount providers, such as Legal Zoom, offer tempting prices. Crucial nuance is lost when filling simplistic questionnaires though - and there's nobody to have your back. It’s cheap in the beginning, but costs more in the end. <strong>Why pick up nickles in front of a bull-dozer?</strong></p>
-					<p class="margin-t-20 margin-b-20 fsize-16 section-text text-faded">At the other end are overpriced legal services. Allow us to help... We have helped thousands of clients just like you. For so long as we combine quality service and reasonable prices we will be successful. Why fix something that's not broken?</p>
+					<p class="section-text text-faded">Who should you trust with your most important affairs? Discount providers, such as Legal Zoom, offer tempting prices. Crucial nuance is lost when filling simplistic questionnaires though - and there's nobody to have your back. It’s cheap in the beginning, but costs more in the end. <strong>Why pick up nickles in front of a bull-dozer?</strong></p>
+					<p class="section-text text-faded">At the other end are overpriced legal services. Allow us to help... We have helped thousands of clients just like you. For so long as we combine quality service and reasonable prices we will be successful. Why fix something that's not broken?</p>
 					<a href="#services" class="page-scroll btn btn-secondary btn-md">find out more</a>
 				</div>
 			</div>
@@ -182,13 +182,13 @@
 			<div class="row text-center">
 				<div class="col-xs-12 col-md-10 col-md-offset-1 service">
 					<a href="Estate-Planning/">
-						<img src="img/services/estate.png" alt="Estate Planning" class="service-img" />
+						<img src="img/services/estate.png" alt="Estate Planning" class="service-img img-centered" />
 					</a>
 					<h4 class="service-heading"><a href="Estate-Planning/">Estate planning</a></h4>
-					<p class="text-muted service-text">
+					<p class="section-text text-muted service-text">
 						Estate taxes trap the unwary. Yet, many avoid the discomfort of estate planning because it relates to death and dying. One's choice amounts to getting ahead of the issue, or leaving things to the cruelty of chance and forcing survivors to face difficult decisions during an even more difficult time.
 					</p>
-					<p class="text-muted service-text">
+					<p class="section-text text-muted service-text">
 						Everything you want to know about wills, trusts, taxes, asset protection and nursing home poverty... but didn't know who to ask. Our articles cover how to prevent your savings from being wiped out by nursing home costs, seven costly mistakes families make during estate planning, what probate is, why you want to avoid it, how to minimize estate taxes and more.
 					</p>
 				</div>
@@ -196,12 +196,12 @@
 				<div class="col-xs-12 col-md-10 col-md-offset-1 service">
 
 					<a href="Asset-Protection/">
-						<img src="img/services/asset.png" alt="Asset Protection Strategies" class="service-img" />
+						<img src="img/services/asset.png" alt="Asset Protection Strategies" class="service-img img-centered" />
 					</a>
 
 					<h4 class="service-heading"><a href="Asset-Protection/">Asset Protection Strategies</a></h4>
 
-					<p class="text-muted service-text">
+					<p class="section-text text-muted service-text">
 						Having home and car insurance is obvious. What's less obvious, but arguably more important, is insuring against bankruptcy, divorce, bad luck, zealous creditors and poor decisions. Properly structuring your finances reduces the risk of catatrophic losses stemming from the aforementioned events. There are as many strategies as people and their situations. Our three most popular offerings are:
 					</p>
 
@@ -226,10 +226,10 @@
 
 				<div class="col-xs-12 col-md-10 col-md-offset-1 service">
 					<a href="Wyoming/">
-						<img src="img/services/checklist.png" alt="Corporate Structures & Strategies" class="service-img" />
+						<img src="img/services/checklist.png" alt="Corporate Structures & Strategies" class="service-img img-centered" />
 					</a>
 					<h4 class="service-heading"><a href="Wyoming/">Corporate Structures &amp; Strategies</a></h4>
-					<p class="text-muted service-text">
+					<p class="section-text text-muted service-text">
 						Proper planning minimizes taxes and liabilities while enhancing privacy. Failing to plan throws everything you've worked for to the wind in the hope "things just work out". Why opt for unnecessary risks when we can take care of them for you? We provide examples of how we can help client like you, along with numerous resource articles.
 					</p>
 
@@ -249,7 +249,7 @@
 
 					</ul>
 
-					<p class="text-muted service-text">
+					<p class="section-text text-muted service-text">
 						Others market cheap corporations and registered agent services... and you get what you pay for. We help secure your future through providing follow-up services such as asset protection, domestic trusts and estate planning. Our relationship doesn't end when you pay, that's when it begins.
 					</p>
 				</div>

@@ -1,4 +1,6 @@
-// Mixins
+/*------------------------------------------------------------------
+  [Mixins]
+------------------------------------------------------------------*/
 
 // Bootstrap Button Variant
 
@@ -261,41 +263,6 @@
   }
 }
 
-
-// --------------------------------------------------
-// Rotate
-// --------------------------------------------------
-
-// eg: @include rotate(45deg);
-@mixin rotate($degrees) {
-  -webkit-transform: rotate($degrees);
-  -moz-transform: rotate($degrees);
-  transform: rotate($degrees);
-}
-
-
-// --------------------------------------------------
-// Translate 3D Transition
-// --------------------------------------------------
-
-// eg: @include translate3d(0,0,0);
-@mixin translate3d($x, $y, $z) {
-  -webkit-transform: translate3d($x, $y, $z);
-  -moz-transform: translate3d($x, $y, $z);
-  transform: translate3d($x, $y, $z);
-}
-
-
-// --------------------------------------------------
-// Border Radius
-// --------------------------------------------------
-
-// eg: @include border-radius(3px);
-@mixin border-radius($radius) {
-  border-radius: $radius;
-}
-
-
 // --------------------------------------------------
 // Visibility
 // --------------------------------------------------
@@ -305,7 +272,6 @@
   -webkit-backface-visibility: $visibility;
   backface-visibility: $visibility;
 }
-
 
 // --------------------------------------------------
 // Display Flex

@@ -11,7 +11,7 @@ header {
 	@include background-cover;
 	text-align: center;
 	color: white;
-	.intro-text {
+	.intro {
 		padding-top: 100px;
 		padding-bottom: 50px;
 		.intro-heading {
@@ -24,14 +24,12 @@ header {
 	}
 }
 
-@media(min-width:768px) {
+@media(min-width:$screen-sm-min) {
 	header {
-		.intro-text {
-			padding-top: 300px;
+		.intro {
+			padding-top: 250px;
 			padding-bottom: 200px;
 			.intro-heading {
-				@include heading-font;
-				font-weight: 700;
 				font-size: 75px;
 				line-height: 75px;
 				margin-bottom: 50px;

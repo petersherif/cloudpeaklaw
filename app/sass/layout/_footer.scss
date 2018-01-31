@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------
-  	[Footer]
+  [Footer]
 ------------------------------------------------------------------*/
 
 footer {
@@ -8,12 +8,6 @@ footer {
 	span.copyright {
 		line-height: 40px;
 		@include heading-font;
-		text-transform: none;
-	}
-	ul.quicklinks {
-		margin-bottom: 0;
-		line-height: 40px;
-		@include heading-font;
-		text-transform: none;
+		text-transform: capitalize;
 	}
 }

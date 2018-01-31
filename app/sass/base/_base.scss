@@ -1,3 +1,7 @@
+/*------------------------------------------------------------------
+	[Base]
+------------------------------------------------------------------*/
+
 // Global Components
 
 body {
@@ -18,8 +22,15 @@ p {
 	line-height: 1.75;
 }
 
-p.large {
-	font-size: 16px;
+a {
+	color: $color-link;
+}
+
+a:hover,
+a:focus,
+a:active,
+a.active {
+	color: $color-link-hover;
 }
 
 a,
@@ -28,17 +39,6 @@ a:focus,
 a:active,
 a.active {
 	outline: none;
-}
-
-a {
-	color: $theme-primary;
-}
-
-a:hover,
-a:focus,
-a:active,
-a.active {
-	color: darken($theme-primary, 10%);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -61,12 +61,12 @@ h1, h2, h3, h4, h5, h6 {
 blockquote {
 	border-left: 3px solid $gray-light;
 	color: $gray-light;
-	font-size: 14px;
+	font-size: 16px;
 
 	.blockquote-heading {
 		color: $gray-dark;
 		text-transform: capitalize;
-		font-size: 16px;
+		font-size: 18px;
 		margin-top: 25px;
 	}
 }

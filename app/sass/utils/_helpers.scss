@@ -1,4 +1,7 @@
 /*------------------------------------------------------------------
+	[Helpers]
+------------------------------------------------------------------*/
+/*------------------------------------------------------------------
 	[Row]
 ------------------------------------------------------------------*/
 
@@ -12,7 +15,6 @@
 	}
 }
 
-
 /*--------------------------------------------------
 	[Container Full Width]
 ----------------------------------------------------*/
@@ -22,7 +24,6 @@
 	margin-left: auto;
 	@include clearfix;
 }
-
 
 /*--------------------------------------------------
 	[Container Small]
@@ -36,7 +37,7 @@
 	@include clearfix;
 }
 
-/* Media Queries below 768px */
+/* Media Queries below 992px */
 @media (min-width: $screen-sm-min) {
 	.container-sm {
 		width: 750px;
@@ -44,7 +45,7 @@
 }
 
 /* Media Queries below 1200px */
-@media (min-width: $screen-lg-min) {
+@media (min-width: $screen-md-min) {
 	.container-sm {
 		width: 970px;
 	}
@@ -141,7 +142,7 @@
 	[Bottom margin below 992px]
 ------------------------------------------------------------------*/
 
-@media (max-width: $screen-md-min) {
+@media (max-width: $screen-sm-max) {
 	.md-margin-b-0 { margin-bottom: 0 !important; }
 	.md-margin-b-4 { margin-bottom: 4px !important; }
 	.md-margin-b-5 { margin-bottom: 5px !important; }
@@ -162,7 +163,7 @@
 	[Bottom margin below 768px]
 ------------------------------------------------------------------*/
 
-@media (max-width: $screen-sm-min) {
+@media (max-width: $screen-xs-max) {
 	.sm-margin-b-0 { margin-bottom: 0 !important; }
 	.sm-margin-b-4 { margin-bottom: 4px !important; }
 	.sm-margin-b-5 { margin-bottom: 5px !important; }
@@ -215,7 +216,7 @@
 	[Text alignment below 992px]
 ------------------------------------------------------------------*/
 
-@media (max-width: $screen-md-min) {
+@media (max-width: $screen-sm-max) {
 	.md-text-center { text-align: center; }
 	.md-text-left { text-align: left; }
 	.md-text-right { text-align: right; }
@@ -226,7 +227,7 @@
 	[Text alignment below 768px]
 ------------------------------------------------------------------*/
 
-@media (max-width: $screen-sm-min) {
+@media (max-width: $screen-xs-max) {
 	.sm-text-center { text-align: center; }
 	.sm-text-left { text-align: left; }
 	.sm-text-right { text-align: right; }

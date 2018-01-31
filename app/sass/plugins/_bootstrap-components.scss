@@ -3,18 +3,24 @@
 ------------------------------------------------------------------*/
 
 .form-control {
-	height: 50px;
+	height: $input-height;
+	line-height: $input-height;
 	@include font($size: 14px, $weight: 400);
-	color: $color-subtitle;
+	color: $color-heading;
 	@include placeholder($color-subtitle);
 	background: $color-sky-light;
 	box-shadow: none;
-	@include border-radius(0);
-	padding-left: 15px;
+	border-radius: 5px;
+	padding: 0 15px;
 
 	&:focus {
 		color: $color-heading;
 		@include placeholder($color-heading);
 		box-shadow: none;
 	}
+}
+
+textarea.form-control {
+	line-height: initial;
+	padding: 15px;
 }

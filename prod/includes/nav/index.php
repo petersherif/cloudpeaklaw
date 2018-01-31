@@ -36,7 +36,7 @@
 						<li><a href="Wyoming/RegisteredAgent/">Registered Agent</a></li>
 					  </ul>
 					</li>
-					<li>
+					<li class="hide-sm">
 						<a href="About-Us/">Our Story &amp; Locations</a>
 					</li>
 				</ul>
