@@ -11,10 +11,11 @@ var	uglify 			  = require('gulp-uglify');
 var concat        = require('gulp-concat');
 var	cache 			  = require('gulp-cache');
 var	imagemin 		  = require('gulp-imagemin');
-var	htmlreplace 	= require('gulp-html-replace');
+var htmlreplace   = require('gulp-html-replace');
+var	replace 	    = require('gulp-replace');
 var	del 				  = require('del');
 var	runSequence   = require('run-sequence');
-var	plumber 			= require('gulp-plumber');
+// var	plumber 			= require('gulp-plumber');
 var	pkg 				  = require('./package.json');
 
 // Set the banner content
@@ -26,8 +27,8 @@ var banner = ['/**',
 		  ' */',
 		  ''].join('\n');
 
-var app = 'app/',
-		prod = 'prod/';
+var app = 'app/anewdesign/',
+		prod = 'prod/anewdesign/';
 
 var paths = {
 	html: {
@@ -86,6 +87,12 @@ var paths = {
   }
 };
 
+function swallowError (error) {
+  console.log(error.toString());
+
+  this.emit('end');
+}
+
 gulp.task('clean', function() {
   return del([ 'prod' ]);
 });
@@ -97,10 +104,10 @@ gulp.task('clean', function() {
 // Sass - Compile Sass files into CSS
 gulp.task('sass', function() {
   return gulp.src(paths.sass.src)
-  	.pipe(plumber())
   	.pipe(sourcemaps.init())
   	.pipe(changed(paths.sass.staging))
     .pipe(sass({ outputStyle: 'expanded' }))
+    .on('error', swallowError)
     .pipe(autoprefixer({
         browsers: ['last 2 versions'],
         // cascade: false // should Autoprefixer use Visual Cascade, if CSS is uncompressed. Default: true
@@ -165,8 +172,8 @@ gulp.task('buildProduction', function() {
 
 	gulp.src(paths.html.staging)
 		.pipe(htmlreplace({
-        'css': 'css/main.min.css',
-        'js': 'js/main.min.js'
+        'css': '/anewdesign/css/main.min.css',
+        'js': '/anewdesign/js/main.min.js'
     }))
 		.pipe(gulp.dest(paths.html.production));
 });
@@ -174,7 +181,7 @@ gulp.task('buildProduction', function() {
 // Configure the browserSync task
 gulp.task('browserSync', function() {
 	browserSync.init({
-    proxy: 'localhost/cloudpeaklaw/app',
+    proxy: 'localhost/anewdesign',
     port: 8080
 	})
 });
