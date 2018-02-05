@@ -1,0 +1,76 @@
+/*------------------------------------------------------------------
+	[Header]
+------------------------------------------------------------------*/
+
+header {
+	background-color: $color-heading;
+	background-image: url('../img/header-bg.jpg');
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: center center;
+	@include background-cover;
+	text-align: center;
+	color: white;
+	.intro {
+		padding-top: 100px;
+		padding-bottom: 50px;
+		&-heading {
+			@include heading-font;
+			font-weight: 700;
+			font-size: 30px;
+			line-height: 50px;
+			margin-bottom: 25px;
+		}
+
+		&-links {
+			margin-top: 30px;
+			a {
+				display: block;
+				text-transform: uppercase;
+				text-decoration: underline;
+				margin: 0 10px;
+			}
+			span {
+				display: none;
+			}
+		}
+	}
+}
+
+@media(min-width:$screen-sm-min) {
+	header {
+		.intro {
+			padding-top: 250px;
+			padding-bottom: 200px;
+			&-heading {
+				font-size: 55px;
+				line-height: 75px;
+				margin-bottom: 50px;
+				letter-spacing: 2px;
+			}
+
+			&-links {
+				margin-top: 45px;
+				a {
+					display: inline;
+					font-size: 16px;
+				}
+				span {
+					display: inline;
+				}
+			}
+		}
+	}
+}
+
+@media(min-width:$screen-md-min) {
+	header {
+		.intro {
+			&-links {
+				a {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}

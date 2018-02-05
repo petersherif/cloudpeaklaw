@@ -1,0 +1,156 @@
+/*------------------------------------------------------------------
+	[Custom Navigation Bar]
+------------------------------------------------------------------*/
+
+.navbar-custom {
+	background-color: $color-white;
+	.navbar-brand {
+		color: $theme-primary;
+		@include heading-font;
+		font-weight: 700;
+		&:hover,
+		&:focus,
+		&:active,
+		&.active {
+			color: $color-link-hover;
+		}
+	}
+	.navbar-collapse {
+		border-color: fade-out(white, .02);
+	}
+	.navbar-toggle {
+		background-color: $color-white;
+		border-color: $gray-lighter;
+		@include heading-font;
+		color: $gray-darker;
+		font-size: 12px;
+		font-weight: 700;
+		&:hover,
+		&:focus {
+			background-color: $theme-primary;
+			color: $color-white;
+		}
+	}
+	.nav {
+		li,
+		.open .dropdown-menu>li,
+		.open {
+			>a {
+				@include heading-font;
+				font-weight: 400;
+				letter-spacing: 1px;
+				color: $gray-dark;
+				background-color: transparent;
+				border-radius: 5px;
+				&:hover,
+				&:focus {
+					outline: none;
+					color: white;
+					background-color: $color-link;
+				}
+			}
+		}
+	}
+	.navbar-nav>.active>a {
+		border-radius: 5px;
+		color: white;
+		background-color: $color-link;
+	}
+	.navbar-nav>.active>a:hover,
+	.navbar-nav>.active>a:focus {
+		color: white;
+		background-color: $color-link;
+	}
+}
+
+@media(min-width:$screen-sm-min) {
+	.navbar-custom {
+		background-color: transparent;
+		padding: 25px 0;
+		transition: padding 0.3s;
+		border: none;
+		.container-fluid {
+			@include display-flex;
+		}
+		.navbar-brand {
+			font-size: 2em;
+			transition: all 0.3s;
+		}
+		.navbar-collapse {
+			@include display-flex;
+			width: 100%;
+		}
+		.nav {
+			@include display-flex;
+			width: 100%;
+			>li {
+				margin: 0 1px;
+				a {
+					color: $color-white;
+					transition: border-radius 0.1s, font-size 0.3s;
+				}
+				.dropdown-menu {
+					border-color: $theme-primary;
+			    border-radius: 0 0 5px 5px;
+			    left: 0;
+
+					// &:before {
+					// 	content: "";
+				 //    width: 0;
+				 //    height: 0;
+				 //    border-width: 15px;
+				 //    border-style: solid;
+				 //    border-color: transparent transparent $color-white transparent;
+				 //    position: absolute;
+				 //    top: -30px;
+				 //    left: calc(50% - 15px);
+					// }
+				}
+			}
+			.open {
+				>a {
+					border-radius: 5px 5px 0 0;
+				}
+				.dropdown-menu>li>a {
+					border-radius: 0;
+				}
+			}
+		}
+		.navbar-nav>.active>a {
+			border-radius: 3px;
+		}
+	}
+}
+
+// Navbar Change on Scroll
+
+@media(min-width:$screen-sm-min) {
+	.navbar-custom.affix {
+		background-color: $gray-darker;
+		padding: 10px 0;
+		transition: transform 0.3s;
+		.navbar-brand {
+			font-size: 1.5em;
+		}
+		.navbar-nav li a {
+			font-size: 12px;
+		}
+
+		&.out {
+			transform: translate3d(0, calc(-50% + 2px), 0);
+			padding: 2px 0;
+		}
+	}
+}
+
+@media(min-width:$screen-sm-min) and (max-width:$screen-sm-max) {
+	.navbar-custom.affix {
+		.navbar-collapse {
+			.nav {
+				>li.hide-sm {
+					display: none;
+				}
+			}
+		}
+	}
+}

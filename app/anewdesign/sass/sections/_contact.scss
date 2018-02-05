@@ -1,0 +1,67 @@
+/*------------------------------------------------------------------
+	[Contact Section]
+------------------------------------------------------------------*/
+
+.contact {
+	position: relative;
+	background-color: rgba(0,0,0,0.6);
+
+	&::after {
+	  content: "";
+		top: 0;
+	  left: 0;
+	  bottom: 0;
+	  right: 0;
+	  position: absolute;
+		background-image: url('../img/header-bg.jpg');
+		background-position: center;
+		background-repeat: no-repeat;
+		@include background-cover;
+	  opacity: 0.6;
+	  z-index: -1;   
+	}
+
+	.section-heading {
+		color: $color-white;
+	}
+	.form-group {
+		margin-bottom: 25px;
+		textarea.form-control {
+			height: 236px;
+			min-width: 100%;
+			max-width: 100%;
+			min-height: 230px;
+		}
+	}
+	.form-control:focus {
+		border-color: $theme-primary;
+		box-shadow: none;
+	}
+	::-webkit-input-placeholder {
+	   @include heading-font;
+	   text-transform: initial;
+	   color: $gray-light;
+	}
+	:-moz-placeholder { /* Firefox 18- */
+	   @include heading-font;
+	   text-transform: initial;
+	   color: $gray-light;
+	}
+	::-moz-placeholder {  /* Firefox 19+ */
+	   @include heading-font;
+	   text-transform: initial;
+	   color: $gray-light;
+	}
+	:-ms-input-placeholder {  
+	   @include heading-font;
+	   text-transform: initial;
+	   color: $gray-light;
+	}
+
+	.contact-info {
+		p {
+			font-size: 14px;
+			line-height: 1.2;
+		}
+	}
+}
