@@ -247,8 +247,8 @@
 /*------------------------------------------------------------------
 	[Make an element flex]
 ------------------------------------------------------------------*/
-.flex {
-	@include flex();
+.display-flex {
+	@include display-flex();
 }
 
 @media (min-width: $screen-md-min) {

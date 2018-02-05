@@ -70,24 +70,24 @@
 		transition: padding 0.3s;
 		border: none;
 		.container-fluid {
-			@include flex;
+			@include display-flex;
 		}
 		.navbar-brand {
 			font-size: 2em;
 			transition: all 0.3s;
 		}
 		.navbar-collapse {
-			@include flex;
+			@include display-flex;
 			width: 100%;
 		}
 		.nav {
-			@include flex;
+			@include display-flex;
 			width: 100%;
 			>li {
 				margin: 0 1px;
 				a {
 					color: $color-white;
-					transition: border-radius 0.1s;
+					transition: border-radius 0.1s, font-size 0.3s;
 				}
 				.dropdown-menu {
 					border-color: $theme-primary;

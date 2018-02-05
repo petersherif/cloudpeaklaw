@@ -312,8 +312,8 @@ blockquote .blockquote-heading {
   }
   .navbar-custom .nav > li a {
     color: #fff;
-    -webkit-transition: border-radius 0.1s;
-    transition: border-radius 0.1s;
+    -webkit-transition: border-radius 0.1s, font-size 0.3s;
+    transition: border-radius 0.1s, font-size 0.3s;
   }
   .navbar-custom .nav > li .dropdown-menu {
     border-color: #F05F40;
@@ -580,32 +580,32 @@ footer span.copyright {
 /*------------------------------------------------------------------
 	[Services Section]
 ------------------------------------------------------------------*/
-.services .service {
+.text-block__item {
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-.services .service-img {
+.text-block__img {
   max-width: 150px;
 }
 
-.services .service-heading {
+.text-block__heading {
   margin: 15px 0;
   text-transform: none;
 }
 
-.services .service-heading a {
+.text-block__heading a {
   color: #333333;
 }
 
-.services .service-list {
+.text-block__list {
   list-style: circle;
   text-align: left;
   margin: 40px 0;
   font-size: 16px;
 }
 
-.services .service-list li {
+.text-block__list li {
   margin: 10px 0;
 }
 
@@ -824,6 +824,14 @@ fieldset[disabled] .btn-secondary.focus {
 .btn.active,
 .btn:active:focus {
   outline: none;
+}
+
+.floating-content__btn,
+.floating-content__link {
+  border-radius: 5px;
+  text-transform: capitalize;
+  margin: 8px 5px;
+  font-weight: 600;
 }
 
 ul.social-buttons {
@@ -1324,7 +1332,7 @@ body {
 /*------------------------------------------------------------------
 	[Make an element flex]
 ------------------------------------------------------------------*/
-.flex {
+.display-flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

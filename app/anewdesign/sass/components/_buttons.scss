@@ -39,6 +39,16 @@
 	outline: none;
 }
 
+
+// Related reading btns
+.floating-content__btn,
+.floating-content__link {
+	border-radius: 5px;
+  text-transform: capitalize;
+  margin: 8px 5px;
+  font-weight: 600;
+}
+
 // Social Buttons
 
 ul.social-buttons {

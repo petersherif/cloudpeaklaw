@@ -276,7 +276,7 @@
 // --------------------------------------------------
 // Display Flex
 // --------------------------------------------------
-@mixin flex($display: flex, $wrap: wrap, $align-items: center, $justify-content: center) {
+@mixin display-flex($display: flex, $wrap: wrap, $align-items: center, $justify-content: center) {
   display: $display;
   flex-wrap: $wrap;
   align-items: $align-items;
