@@ -115,9 +115,7 @@
 			</div>
 			<div class="row text-center">
 				<div class="col-xs-12 col-md-2 text-block__item">
-					<a href="/anewdesign/Estate-Planning/">
-						<img src="/anewdesign/img/dapt-icon.jpg" alt="Estate Planning" class="text-block__img img-centered img-circle" />
-					</a>
+					<img src="/anewdesign/img/dapt-icon.jpg" alt="Estate Planning" class="text-block__img img-centered img-circle" />
 				</div>
 				<div class="col-xs-12 col-md-9 col-md-offset-1 text-block__item">
 					<h4 class="text-block__heading lh-title">Probate proceedings typically involve several features:</h4>
@@ -181,9 +179,7 @@
 			</div>
 			<div class="row text-center">
 				<div class="col-xs-12 col-md-2 col-md-offset-1 col-md-push-9 text-block__item">
-					<a href="/anewdesign/Estate-Planning/">
-						<img src="/anewdesign/img/money-icon.jpg" alt="Estate Planning" class="text-block__img img-centered img-circle" />
-					</a>
+					<img src="/anewdesign/img/money-icon.jpg" alt="Estate Planning" class="text-block__img img-centered img-circle" />
 				</div>
 				<div class="col-xs-12 col-md-9 col-md-pull-3 text-block__item">
 					<p class="section-text text-muted text-block__text text-justify">

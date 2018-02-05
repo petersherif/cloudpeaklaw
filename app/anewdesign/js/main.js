@@ -57,7 +57,7 @@
 		$('.page-loading').fadeOut();
 		// Body overflow is hidden by default. The next line adds to the body
 		// the class .loaded{overflow-x: hidden; overflow-y: auto;}
-		$('body').toggleClass('loaded');
+		$('body').addClass('loaded');
 	});
 
 })(jQuery); // End of use strict
